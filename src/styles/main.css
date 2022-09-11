@@ -1,0 +1,20 @@
+/*@import 'reset';*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+p {
+  color: blue;
+}
+@media screen and (min-width: 760px) and (max-width: 1199px) {
+  p {
+    color: red;
+  }
+}
+@media screen and (max-width: 759px) {
+  p {
+    color: purple;
+  }
+}/*# sourceMappingURL=main.css.map */

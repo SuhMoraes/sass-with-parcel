@@ -1,0 +1,126 @@
+// Variaveis do grid
+$cols: 12; //Total de colunas
+$gutter: 20px; // == Margin-left + margin-right = 10ppx para cada lado
+// Breakpoints Devices, que serão utilizados também nos containers
+$l-device: 1200px; // Large Device
+$m-device: 760px; // Medium Device
+$s-device: 480px; // Small Device
+
+// Box-sizing
+*,
+*::after,
+*::before {
+    // * ->  Seletor curinga - seleciona todos os elementos
+    box-sizing: border-box; // Define o width igualmente
+}
+
+// Mixin de Media Query
+@mixin device($size) {
+    @if $size == l {
+        @media screen and (min-width: #{$l-device}) {
+            // até 1200px
+            @content;
+        }
+    } @else if $size == m {
+        @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1}) {
+            // De 760px até 1199px
+            @content;
+        }
+    } @else if $size == s {
+        @media screen and (max-width: #{$m-device - 1}) {
+            // de 480px até 759px
+            @content;
+        }
+    }
+}
+
+p {
+    color: blue;
+    @include device(m) {
+        color: red;
+    }
+    @include device(s) {
+        color: purple;
+    }
+}
+
+// Função do Grid
+
+@function grid($col, $offset: false) {
+    // $offset ->
+    $width: $col / $cols * 100 + "%";
+    $result: calc(#{$width} - #{$gutter});
+    @if $offset == offset {
+        $gutter: $gutter / 2;
+        $result: calc(#{$width} + #{$gutter});
+    }
+    @return $result;
+}
+
+// Gera as classes de Grid
+@for $i from 1 through $cols {
+    .grid-#{$i} {
+        width: grid($i);
+    }
+}
+
+// Mixin estrutura do grid
+@mixin grid-structure {
+    float: left;
+    min-height: 1px;
+    margin-left: $gutter / 2;
+    margin-right: $gutter / 2;
+    @include device(s) {
+        width: 100%;
+        float: none;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+[class^= ".grid-"] { // [class^= ""] - Seleciona todos os seletores que começam com "grid-".
+    @include grid-structure;
+}
+
+// Gera as classes de Offset
+@for $i from 1 through $cols {
+    .offset-#{$i} {
+        margin-left: grid($i, offset);
+        @extend %offset;
+    }
+}
+
+@include device(s) {
+    %offset {
+        margin-left: 0px;
+    }
+}
+
+// Mixin de clearfix
+@mixin clearfix {
+    &::after, &::before {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin  container {
+    max-width: $l-device;
+    margin: 0 auto;
+    position: relative;
+    @include device(m) {
+        max-width: $m-device;
+    }
+    @include device(s) {
+        max-width: $s-device;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    @include clearfix;
+} 
+
+.container {
+    @include container;
+}
