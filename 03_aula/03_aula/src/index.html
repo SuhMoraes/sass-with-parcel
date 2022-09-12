@@ -5,16 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="favicon.ico" type="image/icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=PT+Mono&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/main.css" />
     <title>Le Scone</title>
   </head>
   <body>
-    <div class="container">
-      <div class="grid-5"></div>
-      <div class="grid-7"></div>
-      <div class="grid-4"></div>
-      <div class="grid-4"></div>
-      <div class="grid-4"></div>
-    </div>
+    <main class="container intro">
+      <div class="grid-5">
+        <img class="logo" src="img/lescone.png" alt="Le Scone" />
+        <div class="intro-info">
+          <p>
+            De Seg. á Sab. <span class="aberto"></span> <br />
+            das 07:00h às 18:00h
+          </p>
+          <p>
+            Praia de Botafogo, 300 <br />
+            Rio de Janeiro - RJ
+          </p>
+        </div>
+        <p class="intro-telefone">+55 021 2412-3333</p>
+      </div>
+      <div class="grid-7">
+        <img src="img/foto.png" alt="Foto de Le Scone" />
+      </div>
+    </main>
+
+    <section class="container">
+      <h1 class="grid-4">Menu</h1>
+      <div class="grid-7 offset-1">
+        <div class="menu-item">
+          <img src="img/prato-1.png" alt="Foto do Prato" />
+          <h2>Entradas</h2>
+          <ul>
+            <li><span>R$3,50</span> Ovos Mexidos</li>
+            <li><span>R$9,90</span> Scone de Frutas</li>
+            <li><span>R$35,90</span> Queijo Gouda com Presunto Parma</li>
+            <li><span>R$32,70</span> Queijo Brie com Ervas Finas</li>
+            <li><span>R$25,90</span> Queijo Parma com Azeitonas Pretas</li>
+          </ul>
+        </div>
+        <div class="menu-item">
+          <img src="img/prato-2.png" alt="Foto do Prato" />
+          <h2>Pratos Principais</h2>
+          <ul>
+            <li><span>R$42,90</span> Hamburguer de Cordeiro</li>
+            <li><span>R$59,90</span> Costela de Cordeiro</li>
+            <li><span>R$35,90</span> Penne À Quatro Queijos</li>
+            <li><span>R$42,70</span> Hamburguer de Queijo Brie</li>
+            <li><span>R$55,90</span> Torta de Camarão</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="container contato">
+      <div class="grid-4 titulo">
+        <div class="grid-7 offset-1">
+          <form>
+            <label for="">Nome</label>
+            <input type="text" />
+            <div class="row">
+              <div class="grid-7">
+                <label>E-mail</label>
+                <input type="text" />
+              </div>
+              <div class="grid-5">
+                <label>Telefone</label>
+                <input type="text" />
+              </div>
+            </div>
+            <label>Mensagem</label>
+            <textarea></textarea>
+            <input class="button" type="button" value="Enviar" />
+          </form>
+          <div class="contato-info">
+            <p>contato@lescone.com ////</p>
+            <p>+55 021 2412-3333 ////</p>
+          </div>
+          <a href="#" class="contato-mapa"></a>
+				    <img src="img/map.png" alt="Como chegar em Le Scone">
+			    </a>        
+      </div>      
+    </section>
+    <footer>
+      <div class="container">
+        <p>Le Scone © 1989 - 2016. Alguns direitos reservados</p>
+			    <a href="https://github.com/SuhMoraes" target="_blank">
+				  <img src="img/lescone-icone.png" alt="Le Scone Icone" />
+			</a>
+      </div>
+    </footer>
   </body>
 </html>
