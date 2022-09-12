@@ -1,22 +1,7 @@
-/*@import 'reset';*/
 *,
 *::after,
 *::before {
   box-sizing: border-box;
-}
-
-p {
-  color: blue;
-}
-@media screen and (min-width: 760px) and (max-width: 1199px) {
-  p {
-    color: red;
-  }
-}
-@media screen and (max-width: 759px) {
-  p {
-    color: purple;
-  }
 }
 
 .grid-1 {
@@ -67,14 +52,14 @@ p {
   width: calc(100% - 20px);
 }
 
-[class^=".grid-"] {
+[class^=grid-] {
   float: left;
   min-height: 1px;
   margin-left: 10px;
   margin-right: 10px;
 }
 @media screen and (max-width: 759px) {
-  [class^=".grid-"] {
+  [class^=grid-] {
     width: 100%;
     float: none;
     margin-left: 0px;
@@ -148,12 +133,29 @@ p {
 @media screen and (max-width: 759px) {
   .container {
     max-width: 480px;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 .container::after, .container::before {
   content: "";
   display: table;
   clear: both;
+}
+
+.row {
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+@media screen and (max-width: 759px) {
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+div {
+  font-family: "Aref Ruqaa", serif;
+  font-family: "PT Mono", monospace;
 }/*# sourceMappingURL=main.css.map */
